@@ -1,0 +1,49 @@
+{% extends 'dashboard.html' %}
+
+{% block main-content %}
+    <section class="first-section" id="top">
+        <div class="container">
+            <div class="row title-div">
+                <h1 class="oswald-heading">Find Tutors</h1>
+                <hr>
+                <div class="quick-links-div">
+                    <form class="form-horizontal" action="{% url 'search' %}" method="get">
+                        <div class="form-group">
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="search_string"
+                                       placeholder="enter course name, course number, or subject"
+                                       value="{{ form.cleaned_data.search_string }}">
+                            </div>
+                            <label class="col-sm-2">
+                                <button type="submit" class="btn btn-info"><span
+                                        class="glyphicon glyphicon-search"></span> SEARCH
+                                </button>
+                            </label>
+                        </div>
+                    </form>
+                    <div class="row">
+                        <div class="col-md-3">
+                            Minimum Average Rating:
+                            <span class="glyphicon glyphicon-star-empty"></span>
+                            <span class="glyphicon glyphicon-star-empty"></span>
+                            <span class="glyphicon glyphicon-star-empty"></span>
+                            <span class="glyphicon glyphicon-star-empty"></span>
+                            <span class="glyphicon glyphicon-star-empty"></span>
+                        </div>
+                        <div class="col-md-3">
+                            Price Range: <input type="text" size="1"> to <input type="text" size="1">
+                        </div>
+                        <div class="col-md-3">
+                            Sort Order:
+                            <span class="glyphicon glyphicon-chevron-up"></span>
+                            <span class="glyphicon glyphicon-chevron-down"></span>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <hr>
+                <br>
+            </div>
+        </div>
+    </section>
+{% endblock %}

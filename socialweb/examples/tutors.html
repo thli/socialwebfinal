@@ -1,0 +1,81 @@
+{% extends 'index.html' %}
+{% load staticfiles %}
+
+{% block navbar-items %}
+    <li><a href="{% url 'index' %}">Students</a></li>
+    <li><a href="#" onclick="s_scrollTo('#intro')">Tutors</a></li>
+    <li><a href="#contact">Contact</a></li>
+{% endblock %}
+
+{% block main-content %}
+    <section id="intro" class="intro-section tutor-intro-section ">
+        <div class="container my-jumbotron">
+            <h1 class="tagline">TEACH ON YOUR OWN TERMS</h1>
+
+            <div class="smaller-tagline">
+                <span class="glyphicon glyphicon-user"></span> register
+                <span class="glyphicon glyphicon-link"></span> match
+                <span class="glyphicon glyphicon-ok"></span> enlighten
+            </div>
+        </div>
+        <!-- /container -->
+        <div class="btn-group my-btn-group img-rounded">
+            <a href="{% url 'index' %}" type="button" class="btn btn-success">For Students</a>
+            <button type="button" class="btn btn-primary" onclick="s_scrollTo('#register')">For Tutors</button>
+        </div>
+    </section>
+
+    <section id="register" class="register-section">
+        <div class="container">
+            <h1 class="section-header"><span class="glyphicon glyphicon-user"></span> register</h1>
+
+            <div class="section-content">
+                <h2>
+                    Fill out your profile with your course history, subjects with which you are comfortable, showcase
+                    your
+                    expertise, and set your price and availability.
+                </h2>
+            </div>
+
+            <div class="section-arrow" onclick="s_scrollTo('#match')">
+                <span class="glyphicon glyphicon-chevron-down"></span>
+            </div>
+        </div>
+    </section>
+
+    <section id="match" class="tutor-match-section">
+        <div class="container">
+            <h1 class="section-header"><span class="glyphicon glyphicon-link"></span> match</h1>
+
+            <div class="section-content">
+                <h2>
+                    Mutually agree on a time and a location. We'll do all the grunt work so that you can focus on giving
+                    the
+                    best learning experience possible.
+                </h2>
+            </div>
+
+            <div class="section-arrow" onclick="s_scrollTo('#enlighten')">
+                <span class="glyphicon glyphicon-chevron-down"></span>
+            </div>
+        </div>
+    </section>
+
+    <section id="enlighten" class="enlighten-section">
+        <div class="container">
+            <h1 class="section-header"><span class="glyphicon glyphicon-ok"></span> enlighten</h1>
+
+            <div class="section-content">
+                <h2>
+                    Give help. Give knowledge. Get experience (and get paid) for teaching what you know, and maybe even
+                    learn
+                    something along the way.
+                </h2>
+            </div>
+
+            <div class="section-arrow">
+                <a href="{% url 'dashboard' %}"><span>Let's get started!</span></a>
+            </div>
+        </div>
+    </section>
+{% endblock %}

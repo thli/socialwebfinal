@@ -1,0 +1,30 @@
+{% extends 'dashboard.html' %}
+
+{% block main-content %}
+<section class="first-section" id="top">
+    <div class="container">
+        <div class="row title-div">
+            <h1 class="big-date-heading">11/03</h1>
+
+            <h1 class="oswald-heading">Upcoming Tutoring Session</h1>
+            <hr>
+            <div class="session-info">
+                You are being tutored by <a href="wireframes/tutorprofile.png">Maung Aung</a> in <a
+                    href="wireframes/meetingplace.png">Hunt Library, Green Room</a> at 4:30 PM.
+            </div>
+            <div class="session-options-div">
+                <div class="btn-group my-btn-group">
+                    <a href="wireframes/messages.png" type="button" class="btn btn-primary">View Messages</a>
+                </div>
+                <div class="btn-group my-btn-group">
+                    <button type="button" class="btn btn-warning">Propose Change</button>
+                    <button type="button" class="btn btn-danger">Cancel Session</button>
+                </div>
+            </div>
+            <hr>
+            <hr>
+            <br>
+        </div>
+    </div>
+</section>
+{% endblock %}

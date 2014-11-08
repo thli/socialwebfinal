@@ -1,0 +1,132 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+	
+{% block css %}
+{{block.super}}
+<link href='http://fonts.googleapis.com/css?family=Dorsa' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Oswald:300' rel='stylesheet' type='text/css'>
+
+<!-- Custom styles for this template -->
+<link href="{% static 'styles/main.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block js %}
+<script src="{% static 'scripts/main.js' %}"></script>
+{% endblock %}
+
+{% block navbar-items %}
+<li id="li-dashboard"><a href="#" onclick="s_scrollTo('#top')">Dashboard</a></li>
+{% endblock %}
+
+{% block navbar-right-items %}
+<li id="li-my-profile"><a href="{% url 'profile' %}">My Profile</a></li>
+<li><a href="{% url 'auth:logout' %}?next=/enlightnme/index.html">Logout</a></li>
+{% endblock %}
+
+{% block main-content %}
+<script>document.getElementById("li-dashboard").setAttribute("class", "active")</script>
+<section class="first-section" id="top">
+    <div class="container">
+        <div class="row title-div">
+            <h1 class="big-heading"><span class="glyphicon glyphicon-align-justify"></span> dashboard</h1>
+
+            <h1 class="oswald-heading">Quick Links</h1>
+            <hr>
+            <div class="quick-links-div">
+                Tutoring Sessions:
+                <div class="btn-group my-btn-group">
+                    <a href="{% url 'search' %}" type="button" class="btn btn-primary">Schedule New</a>
+                    <button type="button" class="btn btn-success" onclick="showUpcomingSessions()">View Upcoming
+                        <span class="badge">3</span></button>
+                    <button type="button" class="btn btn-default" onclick="showPastSessions()">View Past <span
+                            class="badge">2</span></button>
+                </div>
+            </div>
+            <div class="quick-links-div">
+                Manage Account:
+                <div class="btn-group my-btn-group">
+                    <button type="button" class="btn btn-default">Payments</button>
+                    <a href="{% url 'edit_profile' %}" type="button" class="btn btn-default">Edit Profile</a>
+                    <a href="#" type="button" class="btn btn-default">Add Course</a>
+                </div>
+            </div>
+            <hr>
+            <hr>
+            <br>
+        </div>
+    </div>
+</section>
+
+<section id="upcoming-sessions" class="main-section">
+    <div class="container">
+        <div class="row title-div">
+            <h1 class="oswald-heading">Upcoming Sessions</h1>
+        </div>
+        <div class="row">
+            <div class="col-4 col-sm-4 col-lg-2 outer-date-div">
+                <a href="{% url 'view_session' %}">
+                    <div class="student-date-div img-rounded">
+                        <h2 class="date-heading">11/03</h2>
+                        <hr>
+                        <p>You are being tutored by Maung Aung in Hunt Library, Green Room at 4:30 PM.</p>
+                    </div>
+                </a>
+            </div>
+            <div class="col-4 col-sm-4 col-lg-2 outer-date-div">
+                <div class="student-date-div img-rounded" onclick="alert('Click the first upcoming session!')">
+                    <h2 class="date-heading">11/04</h2>
+                    <hr>
+                    <p>You are being tutored by Diana Zhu in Cohan University Center, Pake Room at 7:30 PM.</p>
+                </div>
+            </div>
+            <div class="col-4 col-sm-4 col-lg-2 outer-date-div">
+                <div class="tutor-date-div img-rounded" onclick="alert('Click the first upcoming session!')">
+                    <h2 class="date-heading">11/07</h2>
+                    <hr>
+                    <p>You will be a tutor for Thomas Li in Mudge, Reading Room at 7:30 PM.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="past-sessions" class="main-section" style="display: none;">
+    <div class="container">
+        <div class="row title-div">
+            <h1 class="oswald-heading">Past Sessions</h1>
+        </div>
+        <div class="row">
+            <div class="col-4 col-sm-4 col-lg-2 outer-date-div">
+                <div class="tutor-date-div-past img-rounded" onclick="alert('Click the second past session!')">
+                    <h2 class="date-heading">10/29</h2>
+                    <hr>
+                    <p>You tutored Thomas Li in Cohan University Center, Basement Level at 8:30 PM.</p>
+                </div>
+            </div>
+            <div class="col-4 col-sm-4 col-lg-2 outer-date-div">
+                <a href="{% url 'past_session' %}">
+                    <div class="student-date-div-past img-rounded">
+                        <h2 class="date-heading">10/27</h2>
+                        <hr>
+                        <p>You were tutored by Diana Zhu in Cohan University Center, Pake Room at 4:30 PM.</p>
+                    </div>
+                </a>
+            </div>
+            <div class="col-4 col-sm-4 col-lg-2 outer-date-div">
+                <div class="session-reviewed img-rounded" onclick="alert('Click the second past session!')">
+                    <h2 class="date-heading">10/15</h2>
+                    <hr>
+                    <p>You were tutored by Diana Zhu in Hunt Library, Basement Level at 6:30 PM.</p>
+                </div>
+            </div>
+            <div class="col-4 col-sm-4 col-lg-2 outer-date-div">
+                <div class="session-reviewed img-rounded" onclick="alert('Click the second past session!')">
+                    <h2 class="date-heading">10/14</h2>
+                    <hr>
+                    <p>You were tutored by Diana Zhu in Hunt Library, Basement Level at 6:30 PM.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

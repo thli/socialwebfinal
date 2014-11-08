@@ -1,0 +1,58 @@
+{% extends 'dashboard.html' %}
+
+{% block main-content %}
+<section class="first-section-higher" id="top">
+    <div class="container">
+        <div class="row title-div">	
+            <h1 class="big-date-heading">10/27</h1>
+
+            <h1 class="oswald-heading">Past Tutoring Session</h1>
+            <hr>
+            <div class="session-info">
+                You were tutored by <a href="wireframes/tutorprofile.png">Diana Zhu</a> in <a
+                    href="wireframes/meetingplace.png">Cohan University Center, Pake Room</a> at
+                4:30 PM.
+            </div>
+            <div class="session-options-div">
+                <div class="btn-group my-btn-group">
+                    <a href="wireframes/messages.png" type="button" class="btn btn-primary">View Messages</a>
+                </div>
+            </div>
+            <hr>
+            <hr>
+
+        </div>
+        <div class="row">
+            <div class="col-md-1">
+                Timeliness:<br>
+                Knowledge:<br>
+                Helpfulness:
+            </div>
+            <div class="col-md-8 stars">
+                <span class="glyphicon glyphicon-star-empty"></span>
+                <span class="glyphicon glyphicon-star-empty"></span>
+                <span class="glyphicon glyphicon-star-empty"></span>
+                <span class="glyphicon glyphicon-star-empty"></span>
+                <span class="glyphicon glyphicon-star-empty"></span>
+                <br>
+                <span class="glyphicon glyphicon-star-empty"></span>
+                <span class="glyphicon glyphicon-star-empty"></span>
+                <span class="glyphicon glyphicon-star-empty"></span>
+                <span class="glyphicon glyphicon-star-empty"></span>
+                <span class="glyphicon glyphicon-star-empty"></span>
+                <br>
+                <span class="glyphicon glyphicon-star-empty"></span>
+                <span class="glyphicon glyphicon-star-empty"></span>
+                <span class="glyphicon glyphicon-star-empty"></span>
+                <span class="glyphicon glyphicon-star-empty"></span>
+                <span class="glyphicon glyphicon-star-empty"></span>
+            </div>
+        </div>
+        <div class="row">
+            <br>
+            <textarea class="form-control" rows="3"></textarea><br>
+            <button type="button" class="btn btn-success">Submit</button>
+        </div>
+    </div>
+</section>
+{% endblock %}

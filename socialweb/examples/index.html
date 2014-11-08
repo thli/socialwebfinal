@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block css %}
+    {{ block.super }}
+    <link href='http://fonts.googleapis.com/css?family=Sue+Ellen+Francisco' rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'styles/index.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block js %}
+    <script src="{% static 'scripts/index.js' %}"></script>
+    <script src="{% static 'scripts/facebook.js' %}"></script>
+{% endblock %}
+
+{% block navbar-items %}
+    <li><a href="#" onclick="s_scrollTo('#intro')">Students</a></li>
+    <li><a href="{% url 'tutors' %}">Tutors</a></li>
+    <li><a href="#contact">Contact</a></li>
+{% endblock %}
+
+{% block navbar-right-items %}
+    {% if user and not user.is_anonymous %}
+        <li>
+            <a href="{% url 'dashboard' %}">Hello, {{ user.get_full_name|default:user.username }}!</a>
+        </li>
+        <li>
+            <a href="{% url 'auth:logout' %}?next={{ request.path }}">Logout</a>
+        </li>
+    {% else %}
+        <li>
+            <a href="{% url 'social:begin' 'facebook' %}"><img src="{% static 'images/facebook.png' %}" height="25px">
+                Login with Facebook</a>
+        </li>
+    {% endif %}
+{% endblock %}
+
+{% block main-content %}
+    <section id="intro" class="intro-section">
+        <div class="container my-jumbotron">
+            <h1 class="tagline">LEARN ON YOUR OWN TERMS</h1>
+
+            <div class="smaller-tagline">
+                <span class="glyphicon glyphicon-search"></span> browse
+                <span class="glyphicon glyphicon-link"></span> match
+                <span class="glyphicon glyphicon-ok"></span> enlighten
+            </div>
+        </div>
+        <!-- /container -->
+        <div class="btn-group my-btn-group img-rounded">
+            <button type="button" class="btn btn-success" onclick="s_scrollTo('#browse')">For Students</button>
+            <a href="{% url 'tutors' %}" type="button" class="btn btn-primary">For Tutors</a>
+        </div>
+    </section>
+
+    <section id="browse" class="browse-section">
+        <div class="container">
+            <h1 class="section-header"><span class="glyphicon glyphicon-search"></span> browse</h1>
+
+            <div class="section-content">
+                <h2>
+                    Find a tutor based on class, subject, expertise, rating, price, or availability. Choose the match
+                    that
+                    suits you the best.
+                </h2>
+            </div>
+            <div class="section-arrow" onclick="s_scrollTo('#match')">
+                <span class="glyphicon glyphicon-chevron-down"></span>
+            </div>
+        </div>
+    </section>
+
+    <section id="match" class="match-section">
+        <div class="container">
+            <h1 class="section-header"><span class="glyphicon glyphicon-link"></span> match</h1>
+
+            <div class="section-content">
+                <h2>
+                    Mutually agree on a time and a location. Communicate about your struggles and specific learning
+                    style
+                    beforehand.
+                </h2>
+            </div>
+
+            <div class="section-arrow" onclick="s_scrollTo('#enlighten')">
+                <span class="glyphicon glyphicon-chevron-down"></span>
+            </div>
+        </div>
+    </section>
+
+    <section id="enlighten" class="enlighten-section">
+        <div class="container">
+            <h1 class="section-header"><span class="glyphicon glyphicon-ok"></span> enlighten</h1>
+
+            <div class="section-content">
+                <h2>
+                    Get helped. Get enlightened. Leave feedback for your tutor before going on to your next assignment
+                    or
+                    study
+                    material; nothing can stop you now!
+                </h2>
+            </div>
+
+            <div class="section-arrow">
+                <a href="{% url 'dashboard' %}"><span>Let's get started!</span></a>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
