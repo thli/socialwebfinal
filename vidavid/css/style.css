@@ -30,7 +30,7 @@ body {
 }
 
 /***home page***/
-.most {
+.mytitle {
 	padding-left: 1em;
 	font-size: 1.5em;
 	text-align: center;
@@ -76,12 +76,12 @@ body {
 	color:#52c5d8;
 }
 .user p a {
-	color: #777;
+	color: #52c5d8;
 }
 
 .user p a:hover {
 	text-decoration: none;
-	color:#52c5d8;
+	
 }
 .user .btn {
 	margin: 0 6%;
@@ -140,7 +140,7 @@ body {
 	margin-right: 0;
 }
 .tag li {
-	float: left;
+	display: inline-block;
 	padding-left: 10px; 
 	padding-bottom: 10px;
 }
@@ -372,3 +372,259 @@ footer .container {
 .controls button {
 	margin: 1em 0 0 0;
 }
+
+/***profile***/
+.name {
+	margin:1em 0;
+	width: 100%;
+	height: auto;
+}
+
+.edit {
+	text-align: center;
+}
+
+.edit p {
+	color: #777;
+	font-size: 0.9em;
+}
+.edit h5 a {
+	color: #222;
+}
+
+.edit h5 a:hover {
+	text-decoration: none;
+	color:#52c5d8;
+}
+.edit p a {
+	color: #52c5d8;
+}
+
+.edit p a:hover {
+	text-decoration: none;
+	
+}
+.edit .btn {
+	margin: 0 6%;
+}
+
+@media (max-width: 992px) {
+	.name {
+		width: 40%;
+		height: auto;
+		margin: 0 auto;
+		float: left;
+		margin-bottom: 2%;
+	}
+	.user {
+		float: left;
+		margin-left: 20%;
+		margin-top: 7%;
+		margin-bottom: 2%;
+	}
+	.clear {
+		clear:both;
+	}
+}
+
+@media (max-width: 768px) {
+	.name {
+		width: 50%;
+		height: auto;
+		margin: 0 auto;
+		float: left;
+		margin-bottom: 2%;
+	}
+}
+
+.tagbox {
+
+    border: 1px solid;
+    border-color: #e3e3e3;
+    border-radius: 5px;
+
+}
+
+.tags {
+	margin-top: 10px;
+	list-style-type: none;
+	padding-left: 10px;
+	margin-right: 0;
+}
+
+.tags li {
+	display: inline-block;
+	padding-left: 7.5px; 
+	padding-right: 7.5px;
+	padding-bottom: 20px;
+}
+
+.tags li a {
+	text-decoration: none;
+	line-height: 2.3em;
+
+}
+
+.tags li a.size1:hover {
+	color: #999;
+	background-color: #fff; 
+}
+
+.tags li a.size1 {
+	background-color: #999;
+	color: white;
+	text-decoration: none;
+	padding: 6px;
+}
+
+.tags li a.size2:hover {
+	color: #f7c86c;
+	background-color: #fff; 
+}
+
+.tags li a.size2 {
+	background-color: #f7c86c;
+	color: white;
+	text-decoration: none;
+	padding: 6px;
+}
+
+.tags li a.size3:hover {
+	color: #dc609e;
+	background-color: #fff; 
+}
+
+.tags li a.size3 {
+	background-color: #dc609e;
+	color: white;
+	text-decoration: none;
+	padding: 6px;
+}
+
+.tags li a.size4:hover {
+	color: #43b034;
+	background-color: #fff; 
+}
+
+.tags li a.size4 {
+	background-color: #43b034;
+	color: white;
+	text-decoration: none;
+	padding: 6px;
+}
+.tags li a.size5:hover {
+	color: #5a9bdb;
+	background-color: #fff; 
+}
+
+.tags li a.size5 {
+	background-color: #5a9bdb;
+	color: white;
+	text-decoration: none;
+	padding: 6px;
+}
+
+.tags li a.size6:hover {
+	color: #f4da45;
+	background-color: #fff; 
+}
+
+.tags li a.size6 {
+	background-color: #f4da45;
+	color: white;
+	text-decoration: none;
+	padding: 6px;
+}	
+
+.tags li a.size7:hover {
+	color: #35ba97;
+	background-color: #fff; 
+}
+
+.tags li a.size7 {
+	background-color: #35ba97;
+	color: white;
+	text-decoration: none;
+	padding: 6px;
+}	
+
+.tags li a.size8:hover {
+	color: #8239c9;
+	background-color: #fff; 
+}
+
+.tags li a.size8 {
+	background-color: #8239c9;
+	color: white;
+	text-decoration: none;
+	padding: 6px;
+}
+
+.tags li a.size9:hover {
+	color: #5b4d25;
+	background-color: #fff; 
+}
+
+.tags li a.size9 {
+	background-color: #5b4d25;
+	color: white;
+	text-decoration: none;
+	padding: 6px;
+}
+.tags li a.size10:hover {
+	color: #ef6287;
+	background-color: #fff; 
+}
+
+.tags li a.size10 {
+	background-color: #ef6287;
+	color: white;
+	text-decoration: none;
+	padding: 6px;
+}
+.tags li a.size11:hover {
+	color: #ade05c;
+	background-color: #fff; 
+}
+
+.tags li a.size11 {
+	background-color: #ade05c;
+	color: white;
+	text-decoration: none;
+	padding: 6px;
+}
+.tags li a.size12:hover {
+	color: #6cbfe0;
+	background-color: #fff; 
+}
+
+.tags li a.size12 {
+	background-color: #6cbfe0;
+	color: white;
+	text-decoration: none;
+	padding: 6px;
+}
+
+
+.myvideo {
+	border: 1px solid;
+    border-color: #e3e3e3;
+    border-radius: 5px;
+    margin-top: 30px;
+}
+
+.myvideos {
+	padding: 10px 10px 10px 17.5px;
+	margin-bottom: 0;
+}
+
+.myvideos .videotext {
+	height: 0;
+}
+
+.videotime {
+	color: #777;
+	font-size: 0.9em;
+	text-align: center;
+}
+
