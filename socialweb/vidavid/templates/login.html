@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="span12">
+    		<div class="" id="loginModal">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><a href="index.html">×</a></button>
+                    <h3>Join Vidavid !</h3>
+                </div>
+                <div class="modal-body">
+                    <div class="well">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#login" data-toggle="tab">Log in</a></li>
+                            <li><a href="#register" data-toggle="tab">Sign up</a></li>
+                        </ul>
+                        <div id="myTabContent" class="tab-content">
+                            <!-- Log in tab -->
+                            <div class="tab-pane active in" id="login">
+                                <form class="form-horizontal" action="{% url 'auth' %}" method="POST">
+                                <fieldset>
+                                    {% for field in l_form %}
+                                    <div class="control-group">
+                                        <label class="control-label" for="{{field.name}}">{{field.label}}</label>
+                                        <div class="controls">
+                                        {{field}}
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                    {% csrf_token %}
+
+                                    <div class="control-group">
+                                        <div class="controls">
+                                          <button type="submit" class="btn btn-info">Login</button>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                </form>                
+                            </div>
+                            
+                            <!-- Registration tab -->
+                            <div class="tab-pane fade" id="register">
+                                <form class="form-horizontal" action="{% url 'register' %}" method="POST">
+                                    <fieldset>
+                                        {% for field in r_form %}
+                                        <div class="control-group">
+                                            <label class="control-label" for="{{field.name}}">{{field.label}}</label>
+                                            <div class="controls">
+                                            {{field}}
+                                            </div>
+                                        </div>
+                                        {% endfor %}
+                                        {% csrf_token %}
+
+                                        <div class="control-group">
+                                            <div class="controls">
+                                              <button type="submit" class="btn btn-info">Login</button>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </form>
+                            </div>
+                        </div> <!--tab handler -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

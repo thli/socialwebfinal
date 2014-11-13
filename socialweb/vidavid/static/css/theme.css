@@ -1,0 +1,18 @@
+.post {
+  background-color:lightgrey;
+  border:1px solid #999;
+  width:300px;
+  height:400px;
+  border-radius: 10px;
+}
+
+.post .indent {
+  margin-left:20px;
+  margin-top:10px;
+}
+
+.post .video {
+  width:18em;
+  height:15em;
+  background-color:red;
+}

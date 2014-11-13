@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}
+	{{block.super}} - Index
+{% endblock %}
+
+{% block content %}
+  <div class = >
+		<a href = "{% url 'logout' %}" type = "button">Logout</a>
+		<form action="index" method = "post">
+			<input type="text" name="url"><br>
+			<button type="submit" value="Submit">Submit url!</button>
+			{% csrf_token %}
+		</form>
+		{% for post in posts %}
+    <div class="post">
+      <div class="indent">
+				<div>
+					<a href="">{{post.user.username}}</a> | <b>Input Title that is x long...</b>
+				</div>
+				<div class="video">
+					<iframe width="560" height="315" src="{{post.url}}" frameborder="0" allowfullscreen></iframe>
+				</div>
+			</div>
+		</div>
+		<br>
+		{% endfor %}
+	</div>
+{% endblock %}
