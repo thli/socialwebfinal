@@ -9,6 +9,7 @@ urlpatterns = patterns('',
     url(r'^logout$', views.logout_user, name = 'logout'),
     url(r'^auth$', views.auth, name = 'auth'),
     url(r'^register$', views.register, name = 'register'),
+    url(r'^profile/(?P<id>\d+)$', views.profile, name='profile'),
 )
 
 urlpatterns += staticfiles_urlpatterns()

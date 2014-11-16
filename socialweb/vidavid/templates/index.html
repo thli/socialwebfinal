@@ -1,14 +1,4 @@
-{% extends 'base.html' %}
-
-{% block navbar-left %}
-<li class="active"><a href="#">Home</a></li>
-<li><a href="#about">About</a></li>
-<li><a href="#contact">Contact</a></li>
-{% endblock %}
-
-{% block navbar-right %}
-<li><a href="{% url 'logout' %}">Logout</a></li>
-{% endblock %}
+{% extends 'base-login.html' %}
 
 {% block content %}
 <div class="log">

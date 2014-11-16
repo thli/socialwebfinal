@@ -72,6 +72,12 @@ def logout_user(request):
 	logout(request)
 	return redirect(reverse('login'))
 
+    
+    
+#-------------------------------------------------------------#
+#                           Profile                           #
+#-------------------------------------------------------------#
+    
 def index(request):
 	context = {}
 	
@@ -88,7 +94,8 @@ def index(request):
 			post.save()
 			return redirect(reverse('index'))
 		
-
+def profile(request):
+    return redirect(reverse('index'))
 		
 		
 		
