@@ -29,6 +29,24 @@ body {
 	display: inline-block;
 }
 
+.row.navigation {
+	margin-bottom: 0;
+}
+
+.row.navigation > .col-lg-6 {
+	margin-top: 8px;
+	margin-left: 25px;
+}
+
+.col-lg-2 > .btn-sm {
+	margin-top: 9.5px;
+}
+
+.modal-body > .input-group {
+	margin: 7px 0;
+}
+
+
 /***home page***/
 .mytitle {
 	padding-left: 1em;
@@ -357,6 +375,10 @@ footer .container {
 	padding: 4em 2em 4em 3em;
 	display: inline-block;
 
+}
+
+footer .container > .row {
+	margin-bottom: 0;
 }
 
 /***login & signup ***/
