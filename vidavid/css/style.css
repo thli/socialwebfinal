@@ -36,7 +36,7 @@ body {
 	margin-bottom: 0;
 }
 
-.row.navigation > .col-lg-6 {
+.row.navigation > ul > li > .col-lg-6 {
 	margin-top: 8px;
 	margin-left: 25px;
 }
@@ -49,6 +49,10 @@ body {
 	margin: 7px 0;
 }
 
+ul
+{
+    list-style-type: none;
+}
 
 /***home page***/
 .mytitle {
