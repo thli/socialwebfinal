@@ -36,6 +36,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'embed_video',
     'vidavid'
 )
 
@@ -48,6 +49,16 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.core.context_processors.request',
+    'django.contrib.messages.context_processors.messages',
+)
+
+# EMBED_VIDEO_BACKENDS = (
+    # 'embed_video.backends.YoutubeBackend',
+    # 'embed_video.backends.VimeoBackend',
+# )
 
 ROOT_URLCONF = 'socialweb.urls'
 

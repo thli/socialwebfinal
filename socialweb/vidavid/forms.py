@@ -76,6 +76,20 @@ class RegistrationForm(forms.Form):
 			return username
 			
 class PostForm(forms.ModelForm):
-	class Meta:
-		model = Post
-		fields = ['url']
+    class Meta:
+        model = Post
+        fields = ['url', 'name']
+        labels = {
+            'url' : 'URL',
+            'name' : 'Name',
+        }
+        widgets = {
+            'url' : forms.URLInput(attrs={
+                'class' : 'form-control',
+                'placeholder' : 'URL'
+            }),
+            'name' : forms.TextInput(attrs={
+                'class' : 'form-control',
+                'placeholder' : 'Name'
+            }),
+        }

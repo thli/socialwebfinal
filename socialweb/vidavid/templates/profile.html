@@ -1,143 +1,191 @@
-{% extends 'base.html' %}
+{% extends 'base-login.html' %}
 
 {% block content %}
 <div>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-2">
-        <img class="name" src="images/users/3.jpg" />
-        <div class="edit">
-          <h5>Alex Lang</h5>
-          <p>Followers: <a href="#">268</a></p>
-          <p>Following: <a href="#">587</a></p>
-          <p>Posts:<a href="#">10</a></p>
-        
-          <a href="#" class="btn btn-sm btn-info"></span>Edit</a>
-        </div>
-      </div>
-      <div class="col-md-8">
-        <div class="tagbox">
-          <h5 class="mytitle">Your Tags</h5>
-          <ul class="tags">
-            <li><a class="size1" href="#">adobe</a></li>
-            <li><a class="size2" href="#">animation</a></li>
-            <li><a class="size3" href="#">arts</a></li>
-            <li><a class="size4" href="#">bizarre</a></li>
-            <li><a class="size5" href="#">blogs</a></li>
-            <li><a class="size6" href="#">books</a></li>
-            <li><a class="size7" href="#">family</a></li>
-            <li><a class="size8" href="#">aftereffects</a></li>
-            <li><a class="size9" href="#">imagine</a></li>
-            <li><a class="size10" href="#">life</a></li>
-            <li><a class="size11" href="#">thoughts</a></li>
-            <li><a class="size12" href="#">childhood</a></li>
-          </ul>
-        </div>
-          
-        <div class="myvideo">
-          <h5 class="mytitle">Your Videos</h5>
-          <div class="myvideos">
-            <div class="row">
-              <div class="col-md-8">
-                <div class="video-container">
-                  <iframe src="https://player.vimeo.com/video/68866825" width="1000" height="563" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> 
-                </div>
-              </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2">
+                <img class="name" src="images/users/3.jpg" />
+                <div class="edit">
+                    <h5>Alex Lang</h5>
+                    <p>Followers: <a href="#">268</a>
+                    </p>
+                    <p>Following: <a href="#">587</a>
+                    </p>
+                    <p>Posts:<a href="#">10</a>
+                    </p>
 
-              <div class="col-md-4">
-                <h2 class="videotitle">The Thing Under the Tree</h2>
-                <p class="videotime"> 2 hours ago </p>
-                <div class="videotext">
-                  <ul class="tag">
-                    <li><a class="size1" href="#">adobe</a></li>
-                    <li><a class="size2" href="#">animation</a></li>
-                    <li><a class="size3" href="#">arts</a></li>
-                    <li><a class="size4" href="#">bizarre</a></li>
-                    <li><a class="size5" href="#">blogs</a></li>
-                    <li><a class="size6" href="#">books</a></li>
-                    <li><a class="size7" href="#">family</a></li>
-                    <li><a class="size8" href="#">aftereffects</a></li>
-                    <li><a class="size9" href="#">imagine</a></li>
-                    <li><a class="size10" href="#">life</a></li>
-                    <li><a class="size11" href="#">thoughts</a></li>
-                    <li><a class="size12" href="#">childhood</a></li>
-                  </ul>
-                  
+                    <a href="#" class="btn btn-sm btn-info">
+                        </span>Edit</a>
                 </div>
-              </div>
             </div>
-          </div>
-
-          <div class="myvideos">
-            <div class="row">
-              <div class="col-md-8">
-                <div class="video-container">
-                  <iframe src="https://player.vimeo.com/video/68866825" width="1000" height="563" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> 
+            <div class="col-md-8">
+                <div class="tagbox">
+                    <h5 class="mytitle">Your Tags</h5>
+                    <ul class="tags">
+                        <li><a class="size1" href="#">adobe</a>
+                        </li>
+                        <li><a class="size2" href="#">animation</a>
+                        </li>
+                        <li><a class="size3" href="#">arts</a>
+                        </li>
+                        <li><a class="size4" href="#">bizarre</a>
+                        </li>
+                        <li><a class="size5" href="#">blogs</a>
+                        </li>
+                        <li><a class="size6" href="#">books</a>
+                        </li>
+                        <li><a class="size7" href="#">family</a>
+                        </li>
+                        <li><a class="size8" href="#">aftereffects</a>
+                        </li>
+                        <li><a class="size9" href="#">imagine</a>
+                        </li>
+                        <li><a class="size10" href="#">life</a>
+                        </li>
+                        <li><a class="size11" href="#">thoughts</a>
+                        </li>
+                        <li><a class="size12" href="#">childhood</a>
+                        </li>
+                    </ul>
                 </div>
-              </div>
 
-              <div class="col-md-4">
-                <h2 class="videotitle">The Thing Under the Tree</h2>
-                <p class="videotime"> 2 hours ago </p>
-                <div class="videotext">
-                  <ul class="tag">
-                    <li><a class="size1" href="#">adobe</a></li>
-                    <li><a class="size2" href="#">animation</a></li>
-                    <li><a class="size3" href="#">arts</a></li>
-                    <li><a class="size4" href="#">bizarre</a></li>
-                    <li><a class="size5" href="#">blogs</a></li>
-                    <li><a class="size6" href="#">books</a></li>
-                    <li><a class="size7" href="#">family</a></li>
-                    <li><a class="size8" href="#">aftereffects</a></li>
-                    <li><a class="size9" href="#">imagine</a></li>
-                    <li><a class="size10" href="#">life</a></li>
-                    <li><a class="size11" href="#">thoughts</a></li>
-                    <li><a class="size12" href="#">childhood</a></li>
-                  </ul>
-                  
+                <div class="myvideo">
+                    <h5 class="mytitle">Your Videos</h5>
+                    <div class="myvideos">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="video-container">
+                                    <iframe src="https://player.vimeo.com/video/68866825" width="1000" height="563" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <h2 class="videotitle">The Thing Under the Tree</h2>
+                                <p class="videotime"> 2 hours ago </p>
+                                <div class="videotext">
+                                    <ul class="tag">
+                                        <li><a class="size1" href="#">adobe</a>
+                                        </li>
+                                        <li><a class="size2" href="#">animation</a>
+                                        </li>
+                                        <li><a class="size3" href="#">arts</a>
+                                        </li>
+                                        <li><a class="size4" href="#">bizarre</a>
+                                        </li>
+                                        <li><a class="size5" href="#">blogs</a>
+                                        </li>
+                                        <li><a class="size6" href="#">books</a>
+                                        </li>
+                                        <li><a class="size7" href="#">family</a>
+                                        </li>
+                                        <li><a class="size8" href="#">aftereffects</a>
+                                        </li>
+                                        <li><a class="size9" href="#">imagine</a>
+                                        </li>
+                                        <li><a class="size10" href="#">life</a>
+                                        </li>
+                                        <li><a class="size11" href="#">thoughts</a>
+                                        </li>
+                                        <li><a class="size12" href="#">childhood</a>
+                                        </li>
+                                    </ul>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="myvideos">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="video-container">
+                                    <iframe src="https://player.vimeo.com/video/68866825" width="1000" height="563" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <h2 class="videotitle">The Thing Under the Tree</h2>
+                                <p class="videotime"> 2 hours ago </p>
+                                <div class="videotext">
+                                    <ul class="tag">
+                                        <li><a class="size1" href="#">adobe</a>
+                                        </li>
+                                        <li><a class="size2" href="#">animation</a>
+                                        </li>
+                                        <li><a class="size3" href="#">arts</a>
+                                        </li>
+                                        <li><a class="size4" href="#">bizarre</a>
+                                        </li>
+                                        <li><a class="size5" href="#">blogs</a>
+                                        </li>
+                                        <li><a class="size6" href="#">books</a>
+                                        </li>
+                                        <li><a class="size7" href="#">family</a>
+                                        </li>
+                                        <li><a class="size8" href="#">aftereffects</a>
+                                        </li>
+                                        <li><a class="size9" href="#">imagine</a>
+                                        </li>
+                                        <li><a class="size10" href="#">life</a>
+                                        </li>
+                                        <li><a class="size11" href="#">thoughts</a>
+                                        </li>
+                                        <li><a class="size12" href="#">childhood</a>
+                                        </li>
+                                    </ul>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="myvideos">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="video-container">
+                                    <iframe src="https://player.vimeo.com/video/68866825" width="1000" height="563" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <h2 class="videotitle">The Thing Under the Tree</h2>
+                                <p class="videotime"> 2 hours ago </p>
+                                <div class="videotext">
+                                    <ul class="tag">
+                                        <li><a class="size1" href="#">adobe</a>
+                                        </li>
+                                        <li><a class="size2" href="#">animation</a>
+                                        </li>
+                                        <li><a class="size3" href="#">arts</a>
+                                        </li>
+                                        <li><a class="size4" href="#">bizarre</a>
+                                        </li>
+                                        <li><a class="size5" href="#">blogs</a>
+                                        </li>
+                                        <li><a class="size6" href="#">books</a>
+                                        </li>
+                                        <li><a class="size7" href="#">family</a>
+                                        </li>
+                                        <li><a class="size8" href="#">aftereffects</a>
+                                        </li>
+                                        <li><a class="size9" href="#">imagine</a>
+                                        </li>
+                                        <li><a class="size10" href="#">life</a>
+                                        </li>
+                                        <li><a class="size11" href="#">thoughts</a>
+                                        </li>
+                                        <li><a class="size12" href="#">childhood</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
-
-          <div class="myvideos">
-            <div class="row">
-              <div class="col-md-8">
-                <div class="video-container">
-                  <iframe src="https://player.vimeo.com/video/68866825" width="1000" height="563" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> 
-                </div>
-              </div>
-
-              <div class="col-md-4">
-                <h2 class="videotitle">The Thing Under the Tree</h2>
-                <p class="videotime"> 2 hours ago </p>
-                <div class="videotext">
-                  <ul class="tag">
-                    <li><a class="size1" href="#">adobe</a></li>
-                    <li><a class="size2" href="#">animation</a></li>
-                    <li><a class="size3" href="#">arts</a></li>
-                    <li><a class="size4" href="#">bizarre</a></li>
-                    <li><a class="size5" href="#">blogs</a></li>
-                    <li><a class="size6" href="#">books</a></li>
-                    <li><a class="size7" href="#">family</a></li>
-                    <li><a class="size8" href="#">aftereffects</a></li>
-                    <li><a class="size9" href="#">imagine</a></li>
-                    <li><a class="size10" href="#">life</a></li>
-                    <li><a class="size11" href="#">thoughts</a></li>
-                    <li><a class="size12" href="#">childhood</a></li>
-                  </ul>
-                  
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
-      
-
-
-      </div>
-
     </div>
-  </div>
-</div>    
+</div>
+
 {% endblock %}

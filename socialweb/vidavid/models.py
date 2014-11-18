@@ -1,13 +1,21 @@
 from django.db import models
 from django.contrib.auth.models import User
+from embed_video.fields import EmbedVideoField
 
-# Create your models here.
-class PostManager(models.Manager):
-	def create_post(self, user, url):
-		post = self.create(user=user,url=url)
-		return post
-		
+# Create your models here.		
+class Profile(models.Model):
+    user = models.OneToOneField(User)
+    
+    def __unicode__(self):
+        return user
+
 class Post(models.Model):
-	user = models.ForeignKey(User)
-	url = models.CharField(max_length = 200, blank = False, null = False)
-	objects = PostManager()
+    user = models.ForeignKey(User)
+    url = EmbedVideoField()
+    name = models.CharField(max_length=40)
+#    tags = models.
+
+    def __unicode__(self):
+        return url
+        
+        
