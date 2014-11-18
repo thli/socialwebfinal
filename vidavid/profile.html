@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,177 +18,331 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-  </head>
+</head>
 
-  <body>
+<body>
     <nav class="navcolor navbar navbar-default" role="navigation">
-      <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <div class="row navigation">
-            <div class="col-lg-8">
-              <div class="input-group">
-                
-                <input type="text" class="form-control">
-                <span class="input-group-btn">
-                  <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
-                </span>
-              </div><!-- /input-group -->
-            </div><!-- /.col-lg-6 -->
-          
-          <!--<form class="navbar-form navbar-left" role="search">
-            <div class="form-group">
-              <input type="text" class="form-control" placeholder="Search">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="title navbar-brand" href="/vidavid/index">Vidavid</a>
             </div>
-            <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
-          </form>-->
-            <div class="col-lg-3">
-              <ul class="meta nav navbar-nav navbar-right">
-                <li><a href="#"><img class="small" src="images/users/3.jpg" /></a></li>
-                <li><a href="#">Log out</a></li>
-              </ul>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+
+                    <li><a href="#">Home</a>
+                    </li>
+                    <li><a href="#about">About</a>
+                    </li>
+                    <li><a href="#contact">Contact</a>
+                    </li>
+                    <li>
+                        <form>
+                            <input type="text" class="form-control">
+                        </form>
+                    </li>
+                    <li>
+                        <button type="submit" class="btn btn-default"><i class="fa fa-search"></i>
+                        </button>
+                    </li>
+
+                    <li>
+                        <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">
+                            Upload Video
+                        </button>
+                    </li>
+                    <!-- Modal -->
+                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                                    </button>
+                                    <h4 class="modal-title" id="myModalLabel">Upload Your Video</h4>
+                                </div>
+                                <form role="form" action="/vidavid/post-video" method="POST">
+                                    <div class="modal-body">
+
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                                        <button type="submit" class="btn btn-primary">Upload</button>
+                                    </div>
+                                    <input type='hidden' name='csrfmiddlewaretoken' value='kAgSggWoZgio7xmCewdUmG7Pt6vYR9I0' />
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    </li>
+
+                </ul>
+                <ul class="meta nav navbar-nav navbar-right">
+
+                    <li><a href="/vidavid/profile/1">thomashli</a>
+                    </li>
+                    <li><a href="/vidavid/logout">Logout</a>
+                    </li>
+
+
+                </ul>
             </div>
-          </div>
-        </div><!-- /.navbar-collapse -->
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
     </nav>
 
-    <div>
-      <div class="container">
+
+
+
+
+    <div class="container">
         <div class="row">
-          <div class="col-md-2">
-            <img class="name" src="images/users/3.jpg" />
-            <div class="edit">
-              <h5>Alex Lang</h5>
-              <p>Followers: <a href="#">268</a></p>
-              <p>Following: <a href="#">587</a></p>
-              <p>Posts:<a href="#">10</a></p>
-            
-              <a href="#" class="btn btn-sm btn-info"></span>Edit</a>
-            </div>
-          </div>
-          <div class="col-md-8">
-            <div class="tagbox">
-              <h5 class="mytitle">Your Tags</h5>
-              <ul class="tags">
-                <li><a class="size1" href="#">adobe</a></li>
-                <li><a class="size2" href="#">animation</a></li>
-                <li><a class="size3" href="#">arts</a></li>
-                <li><a class="size4" href="#">bizarre</a></li>
-                <li><a class="size5" href="#">blogs</a></li>
-                <li><a class="size6" href="#">books</a></li>
-                <li><a class="size7" href="#">family</a></li>
-                <li><a class="size8" href="#">aftereffects</a></li>
-                <li><a class="size9" href="#">imagine</a></li>
-                <li><a class="size10" href="#">life</a></li>
-                <li><a class="size11" href="#">thoughts</a></li>
-                <li><a class="size12" href="#">childhood</a></li>
-              </ul>
-            </div>
-              
-            <div class="myvideo">
-              <h5 class="mytitle">Your Videos</h5>
-              <div class="myvideos">
-                <div class="row">
-                  <div class="col-md-8">
-                    <div class="video-container">
-                      <iframe src="https://player.vimeo.com/video/68866825" width="1000" height="563" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> 
-                    </div>
-                  </div>
+            <div class="col-md-2">
+                <img class="name" src="images/users/3.jpg" />
+                <div class="edit">
+                    <h5>Alex Lang</h5>
+                    <p>Followers: <a href="#">268</a>
+                    </p>
+                    <p>Following: <a href="#">587</a>
+                    </p>
+                    <p>Posts:<a href="#">10</a>
+                    </p>
 
-                  <div class="col-md-4">
-                    <h2 class="videotitle">The Thing Under the Tree</h2>
-                    <p class="videotime"> 2 hours ago </p>
-                    <div class="videotext">
-                      <ul class="tag">
-                        <li><a class="size1" href="#">adobe</a></li>
-                        <li><a class="size2" href="#">animation</a></li>
-                        <li><a class="size3" href="#">arts</a></li>
-                        <li><a class="size4" href="#">bizarre</a></li>
-                        <li><a class="size5" href="#">blogs</a></li>
-                        <li><a class="size6" href="#">books</a></li>
-                        <li><a class="size7" href="#">family</a></li>
-                        <li><a class="size8" href="#">aftereffects</a></li>
-                        <li><a class="size9" href="#">imagine</a></li>
-                        <li><a class="size10" href="#">life</a></li>
-                        <li><a class="size11" href="#">thoughts</a></li>
-                        <li><a class="size12" href="#">childhood</a></li>
-                      </ul>
-                      
-                    </div>
-                  </div>
+                    <a href="#" class="btn btn-sm btn-info">
+                        </span>Edit</a>
                 </div>
-              </div>
-
-              <div class="myvideos">
-                <div class="row">
-                  <div class="col-md-8">
-                    <div class="video-container">
-                      <iframe src="https://player.vimeo.com/video/68866825" width="1000" height="563" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> 
-                    </div>
-                  </div>
-
-                  <div class="col-md-4">
-                    <h2 class="videotitle">The Thing Under the Tree</h2>
-                    <p class="videotime"> 2 hours ago </p>
-                    <div class="videotext">
-                      <ul class="tag">
-                        <li><a class="size1" href="#">adobe</a></li>
-                        <li><a class="size2" href="#">animation</a></li>
-                        <li><a class="size3" href="#">arts</a></li>
-                        <li><a class="size4" href="#">bizarre</a></li>
-                        <li><a class="size5" href="#">blogs</a></li>
-                        <li><a class="size6" href="#">books</a></li>
-                        <li><a class="size7" href="#">family</a></li>
-                        <li><a class="size8" href="#">aftereffects</a></li>
-                        <li><a class="size9" href="#">imagine</a></li>
-                        <li><a class="size10" href="#">life</a></li>
-                        <li><a class="size11" href="#">thoughts</a></li>
-                        <li><a class="size12" href="#">childhood</a></li>
-                      </ul>
-                      
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="myvideos">
-                <div class="row">
-                  <div class="col-md-8">
-                    <div class="video-container">
-                      <iframe src="https://player.vimeo.com/video/68866825" width="1000" height="563" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> 
-                    </div>
-                  </div>
-
-                  <div class="col-md-4">
-                    <h2 class="videotitle">The Thing Under the Tree</h2>
-                    <p class="videotime"> 2 hours ago </p>
-                    <div class="videotext">
-                      <ul class="tag">
-                        <li><a class="size1" href="#">adobe</a></li>
-                        <li><a class="size2" href="#">animation</a></li>
-                        <li><a class="size3" href="#">arts</a></li>
-                        <li><a class="size4" href="#">bizarre</a></li>
-                        <li><a class="size5" href="#">blogs</a></li>
-                        <li><a class="size6" href="#">books</a></li>
-                        <li><a class="size7" href="#">family</a></li>
-                        <li><a class="size8" href="#">aftereffects</a></li>
-                        <li><a class="size9" href="#">imagine</a></li>
-                        <li><a class="size10" href="#">life</a></li>
-                        <li><a class="size11" href="#">thoughts</a></li>
-                        <li><a class="size12" href="#">childhood</a></li>
-                      </ul>
-                      
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
-          
+            <div class="col-md-8">
+                <div class="tagbox">
+                    <h5 class="mytitle">thomashli's tags</h5>
+                    <ul class="tags">
+                        <li><a class="size1" href="#">adobe</a>
+                        </li>
+                        <li><a class="size2" href="#">animation</a>
+                        </li>
+                        <li><a class="size3" href="#">arts</a>
+                        </li>
+                        <li><a class="size4" href="#">bizarre</a>
+                        </li>
+                        <li><a class="size5" href="#">blogs</a>
+                        </li>
+                        <li><a class="size6" href="#">books</a>
+                        </li>
+                        <li><a class="size7" href="#">family</a>
+                        </li>
+                        <li><a class="size8" href="#">aftereffects</a>
+                        </li>
+                        <li><a class="size9" href="#">imagine</a>
+                        </li>
+                        <li><a class="size10" href="#">life</a>
+                        </li>
+                        <li><a class="size11" href="#">thoughts</a>
+                        </li>
+                        <li><a class="size12" href="#">childhood</a>
+                        </li>
+                    </ul>
+                </div>
 
+                <div class="myvideo">
+                    <h5 class="mytitle">thomashli's videos</h5>
 
-          </div>
+                    <div class="myvideos">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="video-container">
+                                    <iframe width="480" height="360" src="http://www.youtube.com/embed/DCataNWjw-Q?wmode=opaque" frameborder="0" allowfullscreen></iframe>
 
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <h2 class="videotitle">Video 4</h2>
+                                <p class="videotime"> 2 hours ago </p>
+                                <div class="videotext">
+                                    <ul class="tag">
+                                        <li><a class="size1" href="#">adobe</a>
+                                        </li>
+                                        <li><a class="size2" href="#">animation</a>
+                                        </li>
+                                        <li><a class="size3" href="#">arts</a>
+                                        </li>
+                                        <li><a class="size4" href="#">bizarre</a>
+                                        </li>
+                                        <li><a class="size5" href="#">blogs</a>
+                                        </li>
+                                        <li><a class="size6" href="#">books</a>
+                                        </li>
+                                        <li><a class="size7" href="#">family</a>
+                                        </li>
+                                        <li><a class="size8" href="#">aftereffects</a>
+                                        </li>
+                                        <li><a class="size9" href="#">imagine</a>
+                                        </li>
+                                        <li><a class="size10" href="#">life</a>
+                                        </li>
+                                        <li><a class="size11" href="#">thoughts</a>
+                                        </li>
+                                        <li><a class="size12" href="#">childhood</a>
+                                        </li>
+                                    </ul>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="myvideos">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="video-container">
+                                    <iframe width="480" height="360" src="http://www.youtube.com/embed/DCataNWjw-Q?wmode=opaque" frameborder="0" allowfullscreen></iframe>
+
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <h2 class="videotitle">Video 3</h2>
+                                <p class="videotime"> 2 hours ago </p>
+                                <div class="videotext">
+                                    <ul class="tag">
+                                        <li><a class="size1" href="#">adobe</a>
+                                        </li>
+                                        <li><a class="size2" href="#">animation</a>
+                                        </li>
+                                        <li><a class="size3" href="#">arts</a>
+                                        </li>
+                                        <li><a class="size4" href="#">bizarre</a>
+                                        </li>
+                                        <li><a class="size5" href="#">blogs</a>
+                                        </li>
+                                        <li><a class="size6" href="#">books</a>
+                                        </li>
+                                        <li><a class="size7" href="#">family</a>
+                                        </li>
+                                        <li><a class="size8" href="#">aftereffects</a>
+                                        </li>
+                                        <li><a class="size9" href="#">imagine</a>
+                                        </li>
+                                        <li><a class="size10" href="#">life</a>
+                                        </li>
+                                        <li><a class="size11" href="#">thoughts</a>
+                                        </li>
+                                        <li><a class="size12" href="#">childhood</a>
+                                        </li>
+                                    </ul>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="myvideos">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="video-container">
+                                    <iframe width="480" height="360" src="http://www.youtube.com/embed/DCataNWjw-Q?wmode=opaque" frameborder="0" allowfullscreen></iframe>
+
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <h2 class="videotitle">Video 2</h2>
+                                <p class="videotime"> 2 hours ago </p>
+                                <div class="videotext">
+                                    <ul class="tag">
+                                        <li><a class="size1" href="#">adobe</a>
+                                        </li>
+                                        <li><a class="size2" href="#">animation</a>
+                                        </li>
+                                        <li><a class="size3" href="#">arts</a>
+                                        </li>
+                                        <li><a class="size4" href="#">bizarre</a>
+                                        </li>
+                                        <li><a class="size5" href="#">blogs</a>
+                                        </li>
+                                        <li><a class="size6" href="#">books</a>
+                                        </li>
+                                        <li><a class="size7" href="#">family</a>
+                                        </li>
+                                        <li><a class="size8" href="#">aftereffects</a>
+                                        </li>
+                                        <li><a class="size9" href="#">imagine</a>
+                                        </li>
+                                        <li><a class="size10" href="#">life</a>
+                                        </li>
+                                        <li><a class="size11" href="#">thoughts</a>
+                                        </li>
+                                        <li><a class="size12" href="#">childhood</a>
+                                        </li>
+                                    </ul>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="myvideos">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="video-container">
+                                    <iframe width="480" height="360" src="http://www.youtube.com/embed/DCataNWjw-Q?wmode=opaque" frameborder="0" allowfullscreen></iframe>
+
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <h2 class="videotitle">Video 1</h2>
+                                <p class="videotime"> 2 hours ago </p>
+                                <div class="videotext">
+                                    <ul class="tag">
+                                        <li><a class="size1" href="#">adobe</a>
+                                        </li>
+                                        <li><a class="size2" href="#">animation</a>
+                                        </li>
+                                        <li><a class="size3" href="#">arts</a>
+                                        </li>
+                                        <li><a class="size4" href="#">bizarre</a>
+                                        </li>
+                                        <li><a class="size5" href="#">blogs</a>
+                                        </li>
+                                        <li><a class="size6" href="#">books</a>
+                                        </li>
+                                        <li><a class="size7" href="#">family</a>
+                                        </li>
+                                        <li><a class="size8" href="#">aftereffects</a>
+                                        </li>
+                                        <li><a class="size9" href="#">imagine</a>
+                                        </li>
+                                        <li><a class="size10" href="#">life</a>
+                                        </li>
+                                        <li><a class="size11" href="#">thoughts</a>
+                                        </li>
+                                        <li><a class="size12" href="#">childhood</a>
+                                        </li>
+                                    </ul>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
         </div>
-      </div>
-    </div>    
+    </div>
 
-  </body>
+
+    <!-- Bootstrap core javascript & jquery -->
+    <script src="/static/js/jquery-1.11.1.min.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+</body>
+
+</html>
