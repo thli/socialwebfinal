@@ -78,18 +78,18 @@ class RegistrationForm(forms.Form):
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ['url', 'name']
+        fields = ['url', 'title']
         labels = {
             'url' : 'URL',
-            'name' : 'Name',
+            'title' : 'Title',
         }
         widgets = {
             'url' : forms.URLInput(attrs={
                 'class' : 'form-control',
                 'placeholder' : 'URL'
             }),
-            'name' : forms.TextInput(attrs={
+            'title' : forms.TextInput(attrs={
                 'class' : 'form-control',
-                'placeholder' : 'Name'
+                'placeholder' : 'Title'
             }),
         }

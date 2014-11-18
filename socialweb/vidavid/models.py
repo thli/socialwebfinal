@@ -12,7 +12,7 @@ class Profile(models.Model):
 class Post(models.Model):
     user = models.ForeignKey(User)
     url = EmbedVideoField()
-    name = models.CharField(max_length=40)
+    title = models.CharField(max_length=40)
 #    tags = models.
 
     def __unicode__(self):

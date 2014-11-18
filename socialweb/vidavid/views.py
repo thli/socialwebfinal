@@ -106,8 +106,8 @@ def post_video(request):
             
         user = request.user
         url = form.cleaned_data['url']
-        name = form.cleaned_data['name']
-        new_post = Post.objects.create(user=user, url=url, name=name)
+        title = form.cleaned_data['title']
+        new_post = Post.objects.create(user=user, url=url, title=title)
         new_post.save()
         return redirect(reverse('index'))
         
