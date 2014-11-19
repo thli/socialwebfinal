@@ -4,10 +4,14 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, authenticate, logout
 from django.contrib import messages
 from django.core.urlresolvers import reverse
+from django.template.loader import render_to_string
+from django.template import RequestContext
+from django.http import HttpResponse, Http404
 
 from vidavid.models import *
 from vidavid.forms import *
 from django import forms
+import json
 
 # Create your views here.
 #-------------------------------------------------------------#
@@ -83,13 +87,20 @@ def logout_user(request):
     
 def index(request):
     context = {}
-    posts = Post.objects.all().order_by('-id')
+    posts = Post.objects.all().order_by('-id')[:10]
     context['posts'] = posts	
     context['post_form'] = PostForm()
     context['user'] = request.user
     if(request.method == 'GET'):
         return render(request, 'index.html', context)
 
+def update_index(request):
+    id = request.GET.get("min_id")
+    posts = Post.objects.filter(id__lt=id).order_by('-id')[:5]
+    data = json.dumps(render_to_string('post-list-snippet.html', {'posts': posts}, 
+                                    context_instance=RequestContext(request)))
+    return HttpResponse(data, content_type='application/json')
+        
 def profile(request, id):
     context = {}
     user = request.user
@@ -110,7 +121,3 @@ def post_video(request):
         new_post = Post.objects.create(user=user, url=url, title=title)
         new_post.save()
         return redirect(reverse('index'))
-        
-		
-		
-		
