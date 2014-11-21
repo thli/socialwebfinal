@@ -657,3 +657,41 @@ footer .container > .row {
 	text-align: center;
 }
 
+/* Login Page Extra Styling (Gabi) */
+#loginModal {
+	max-width: 700px;
+	background-color:#52C5D8;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+.modal-header {
+	color:#FFFFFF;
+}
+
+.tab-content {
+	/* text-align: center; */
+}
+
+.input-xlarge, .btn.btn-info {
+	width:100%; /* was 60% */
+}
+
+#myTabContent {
+	margin-left:auto;
+	margin-right:auto;
+  width:80%;
+  padding-top:15px;
+}
+
+.well {
+	min-width:300px;
+	max-width:500px;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+label {
+	font-weight:500;
+	color:#555;
+}
