@@ -1,7 +1,27 @@
 body {
 	font-family: 'Roboto', sans-serif;
+    background: #eee;
+    
 }
 
+.clear {
+    clear: both;
+    
+}
+
+a {
+    color: #52c5d8;
+}
+
+.logo {
+    width: 65px;
+    height: auto;
+}
+
+.navbar-brand {
+    padding-right: 0;
+    padding-left: 30px;
+}
 /***navigation***/
 
 .navcolor {
@@ -56,11 +76,9 @@ ul
 
 /***home page***/
 .mytitle {
-	padding-left: 1em;
+	padding: 20px 0 0 82px; 
 	font-size: 1.5em;
-	text-align: center;
-	margin: 2em;
-	font-family: 'Oswald', sans-serif;
+	float: left;
 	font-weight: 400;
 }
 
@@ -403,20 +421,60 @@ footer .container > .row {
 }
 
 /***profile***/
+
+hr { 
+    
+    display: block;
+    margin: 45px 0 0 30px;
+    border-style: inset;
+    width: 56%;
+    float: left;
+   
+} 
+
+div .editprofile {
+    background-color:rgba(255,255,255,0.5);
+    -webkit-box-shadow: 0px 1px 6px 1px rgba(180, 181, 181, 0.86);
+	-moz-box-shadow:    0px 1px 6px 1px rgba(180, 181, 181, 0.86);
+	box-shadow:         0px 1px 6px 1px rgba(180, 181, 181, 0.86);
+    margin-top: 0.7em;
+}
+
 .name {
-	margin:1em 0;
-	width: 100%;
+    display: block;
+	margin:35px auto;
+	width: 70%;
 	height: auto;
+    
 }
 
 .edit {
-	text-align: center;
+	
+    width: 75%;
+    margin: 0 auto;
 }
 
-.edit p {
-	color: #777;
-	font-size: 0.9em;
+.edit > div {
+    
+    text-align: center;
 }
+.follow {
+    float: left;
+    width: 25%;
+    margin-left: 16px;
+    margin-top: 1em;
+    text-align: center;
+}
+
+
+
+.editinfo p {
+	color: #777;
+	font-size: 12px;
+    text-align: left;
+    margin-bottom: 5px;
+}
+
 .edit h5 a {
 	color: #222;
 }
@@ -425,16 +483,16 @@ footer .container > .row {
 	text-decoration: none;
 	color:#52c5d8;
 }
-.edit p a {
+p a {
 	color: #52c5d8;
 }
 
-.edit p a:hover {
+p a:hover {
 	text-decoration: none;
 	
 }
 .edit .btn {
-	margin: 0 6%;
+	margin: 2em 6% 2em 6%;
 }
 
 @media (max-width: 992px) {
@@ -467,25 +525,36 @@ footer .container > .row {
 }
 
 .tagbox {
-
-    border: 1px solid;
-    border-color: #e3e3e3;
-    border-radius: 5px;
-
+    margin-top: 0.7em;
+    background-color:rgba(255,255,255,0.5);
+    -webkit-box-shadow: 0px 1px 6px 1px rgba(180, 181, 181, 0.86);
+	-moz-box-shadow:    0px 1px 6px 1px rgba(180, 181, 181, 0.86);
+	box-shadow:         0px 1px 6px 1px rgba(180, 181, 181, 0.86);
 }
 
 .tags {
 	margin-top: 10px;
 	list-style-type: none;
-	padding-left: 10px;
+	padding-left: 0;
 	margin-right: 0;
+    text-align: left;
+}
+
+.tagbox > .tags {
+    width: 80%;
+    margin: 10px auto 0 auto;
+    padding-bottom: 15px;
 }
 
 .tags li {
 	display: inline-block;
-	padding-left: 7.5px; 
+	padding-left: 0; 
 	padding-right: 7.5px;
 	padding-bottom: 20px;
+}
+
+.tags li:last-child {
+    padding-right: 0;
 }
 
 .tags li a {
@@ -636,25 +705,156 @@ footer .container > .row {
 
 
 .myvideo {
-	border: 1px solid;
-    border-color: #e3e3e3;
-    border-radius: 5px;
-    margin-top: 30px;
+	background-color:rgba(255,255,255,0.5);
+    -webkit-box-shadow: 0px 1px 6px 1px rgba(180, 181, 181, 0.86);
+	-moz-box-shadow:    0px 1px 6px 1px rgba(180, 181, 181, 0.86);
+	box-shadow:         0px 1px 6px 1px rgba(180, 181, 181, 0.86);
+    margin-top: 15px;
 }
+
 
 .myvideos {
-	padding: 10px 10px 10px 17.5px;
-	margin-bottom: 0;
+	padding: 30px 50px 10px 50px;
+    width:80%;
+	margin: 0 auto;
+    background: #eee;
+    text-align: center;
+    margin-top: 10px;
 }
 
-.myvideos .videotext {
-	height: 0;
+
+
+.providtitle {
+	padding: 10px 1em 0 0;
+    float: left;
+    font-size: 1.5em;
+	font-weight: 400;
 }
 
-.videotime {
+.providtime {
+    padding: 20px 1em 0 1em;
+    float: right;
+    font-size: 0.9em;
+	font-weight: 300;
+    color: #777;
+}
+
+.delete {
+    padding: 18px 1em 0 1em;
+    color: #777;
+    float: right;
+    margin-bottom: 1em;
+}
+
+
+.followers {
+	background-color:rgba(255,255,255,0.5);
+    -webkit-box-shadow: 0px 1px 6px 1px rgba(180, 181, 181, 0.86);
+	-moz-box-shadow:    0px 1px 6px 1px rgba(180, 181, 181, 0.86);
+	box-shadow:         0px 1px 6px 1px rgba(180, 181, 181, 0.86);
+    margin-top: 0.7em;
+}
+
+.followerimg {
+    float:left;
+    width: 30%;
+    height: auto;
+    margin: 35px 10px 20px 0;
+}
+
+.follower > .btn {
+    display: inline-block;
+    float: left;
+    margin-top: 10px;
+   
+}
+
+.follower > h5 {
+    margin-top: 35px;
+    
+}
+
+.edit > div {
+    
+    text-align: center;
+}
+
+.followdisplay > .follow {
+    
+    width: 10%;
+    margin-left: 0;
+    margin-right: 25px;
+    margin-top: 1em;
+    text-align: center;
+}
+
+.followdisplay {
+    display: block;
+}
+
+.follow p {
 	color: #777;
-	font-size: 0.9em;
-	text-align: center;
+	font-size: 12px;
+    text-align: left;
+    margin-bottom: 5px;
+}
+
+.followers > .row {
+    margin-left: 82px;
+}
+
+.followers > .row > .col-md-6 {
+    padding: 0;
+}
+
+.followers > hr {
+    width: 66%;
+}
+
+/***edit page***/
+.editpage {
+    margin: 0 82px;
+}
+
+.tab-content {
+    background: #fff;
+}
+.describe {
+   padding: 50px 50px;
+}
+
+.describe > .form-control {
+   
+    height: 100px;
+    background: #eee;
+    margin: 0 auto;
+   
+}
+
+.uploadimg {
+    width: 20%;
+    
+    display: inline-block;
+}
+.upload > form {
+    display: inline-block;
+    text-align: left;
+}
+.change {
+    margin: 0px 0 0 10px;
+    display: inline-block;
+}
+.save {
+    margin: 10px 40% 20px 7%;
+}
+
+.edith5 {
+    padding: 20px 0 10px 0;
+}
+.editp {
+    font-size: 12px;
+    color: #777;
+    margin-right: 20px;
 }
 
 /* Login Page Extra Styling (Gabi) */
@@ -673,9 +873,9 @@ footer .container > .row {
 	/* text-align: center; */
 }
 
-.input-xlarge, .btn.btn-info {
-	width:100%; /* was 60% */
-}
+/***.input-xlarge, .btn.btn-info {
+	width:100%; /* was 60% 
+}***/
 
 #myTabContent {
 	margin-left:auto;
@@ -694,4 +894,11 @@ footer .container > .row {
 label {
 	font-weight:500;
 	color:#555;
+}
+
+.editp > input {
+    
+    display: inline-block;
+    width: 30%;
+    background: #eee;
 }
