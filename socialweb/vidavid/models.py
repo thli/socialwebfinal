@@ -7,15 +7,24 @@ class Profile(models.Model):
     user = models.OneToOneField(User)
     
     def __unicode__(self):
-        return user
+        return unicode(self.user)
 
 class Post(models.Model):
-    user = models.ForeignKey(User)
+    user = models.ForeignKey(Profile)
     url = EmbedVideoField()
     title = models.CharField(max_length=40)
-#    tags = models.
+    liked = models.ManyToManyField(Profile, related_name="likedby")
+
+    @property
+    def likes(self):
+        return self.liked.count()
 
     def __unicode__(self):
-        return url
+        return self.url
         
-        
+class Tag(models.Model)
+    tag = models.CharField(max_length=20)
+    posts = models.ManyToManyField(Post)
+    
+    def __unicode__(self):
+        return self.tag

@@ -6,6 +6,7 @@ from django.contrib import messages
 from django.core.urlresolvers import reverse
 from django.template.loader import render_to_string
 from django.template import RequestContext
+from django.shortcuts import render_to_response
 from django.http import HttpResponse, Http404
 
 from vidavid.models import *
@@ -62,12 +63,15 @@ def register(request):
             context['l_form'] = LoginForm(auto_id=False)
             return redirect(reverse('login'))
 
-    # Creates the new user from the valid form data
+        # Creates the new user and profile from the valid form data
         new_user = User.objects.create_user(username=r_form.cleaned_data['r_username'],
                         email=r_form.cleaned_data['r_email'],
                         password=r_form.cleaned_data['r_password1'])
 
         new_user.save()
+        new_profile = Profile(user=new_user)
+        new_profile.save()
+        
         new_user = authenticate(username=request.POST['r_username'], \
                             password=request.POST['r_password1'])
         login(request, new_user)
@@ -82,42 +86,91 @@ def logout_user(request):
     
     
 #-------------------------------------------------------------#
-#                           Content                           #
+#                      Template views                         #
 #-------------------------------------------------------------#
     
 def index(request):
     context = {}
+    user = get_object_or_404(Profile, user=request.user)
     posts = Post.objects.all().order_by('-id')[:10]
     context['posts'] = posts	
     context['post_form'] = PostForm()
-    context['user'] = request.user
-    if(request.method == 'GET'):
-        return render(request, 'index.html', context)
+    return render_to_response('index.html', context, context_instance=RequestContext(request))
 
+def profile(request, id):
+    context = {}
+    context['post_form'] = PostForm()
+    user = get_object_or_404(Profile, user=request.user)
+    posts = Post.objects.filter(user=user)
+    context['posts'] = posts
+    return render_to_response('profile.html', context, context_instance=RequestContext(request))    
+    
+def search(request):
+    context = {}
+    if request.method == 'GET':
+        query = request.GET.get("query")
+        tag = Tag.objects.filter(tag=query) # do some filtering
+        posts = tag.posts
+        context['posts'] = posts
+    return render_to_response('profile.html', context, context_instance=RequestContext(request))      
+
+def edit_profile(request):
+    context = {}
+    profile = get_object_or_404(Profile, user=request.user)
+    if request.method == 'GET':
+        context['form'] = EditProfileForm(instance=profile)
+    if request.method == 'POST':
+        form = EditProfileForm(request.POST)
+        context['form'] = form
+        if not form.is_valid():
+            #some error message
+            return render_to_response('editprofile.html', context, context_instance=RequestContext(request))
+        form.save()
+    return render_to_response('editprofile.html', context, context_instance=RequestContext(request)) 
+    
+#-------------------------------------------------------------#
+#                           Actions                           #
+#-------------------------------------------------------------#    
+    
 def update_index(request):
     id = request.GET.get("min_id")
     posts = Post.objects.filter(id__lt=id).order_by('-id')[:5]
     data = json.dumps(render_to_string('post-list-snippet.html', {'posts': posts}, 
                                     context_instance=RequestContext(request)))
     return HttpResponse(data, content_type='application/json')
-        
-def profile(request, id):
-    context = {}
-    user = request.user
-    posts = Post.objects.filter(user=user)
-    context['user'] = user
-    context['posts'] = posts
-    return render(request, 'profile.html', context)
-		
+    
 def post_video(request):
     if request.method == 'POST':
         form = PostForm(request.POST)
         if not form.is_valid():
             return redirect(reverse('index'))
             
-        user = request.user
+        user = get_object_or_404(Profile, user=request.user)
         url = form.cleaned_data['url']
         title = form.cleaned_data['title']
         new_post = Post.objects.create(user=user, url=url, title=title)
         new_post.save()
         return redirect(reverse('index'))
+        
+def like_post(request):
+    if request.method == 'POST':
+        id = request.POST.get("id")
+        user = get_object_or_404(Profile, user=request.user)
+        post = get_object_or_404(Post, id=id)
+        post.liked.add(user)
+        post.save()
+        return HttpResponse()
+        
+    return Http404
+
+def delete_post(request):
+    if request.method == 'POST':
+        id = request.POST.get("id")
+        user = get_object_or_404(Profile, user=request.user)
+        post = get_object_or_404(Post, id=id)
+        if not (post.user == user):
+            #trying to delete another user's post?
+            return Http404
+        post.delete()
+        return HttpResonse()
+        

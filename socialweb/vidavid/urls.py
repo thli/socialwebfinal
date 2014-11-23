@@ -12,6 +12,7 @@ urlpatterns = patterns('',
     url(r'^profile/(?P<id>\d+)$', views.profile, name='profile'),
     url(r'^post-video$', views.post_video, name='post-video'),
     url(r'^update-index$', views.update_index, name = 'update-index'),
+    url(r'^like-post$', views.like_post, name = 'like-post'),
 )
 
 urlpatterns += staticfiles_urlpatterns()
