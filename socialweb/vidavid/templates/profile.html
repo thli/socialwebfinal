@@ -46,12 +46,39 @@
         </div>
         <div class="myvideo">
             {% for post in posts %}
-            <div class="myvideos">
+            <div class="myvideos post" post-id="{{post.id}}">
                 <div class="video-container">
                     {% video post.url 'medium' %}
                 </div>
                 <p class="providtitle">{{post.title}}</p>
-                <a class="delete" href="javascript:void(0);"><i class="fa fa-trash fa-lg"></i></a>
+                
+                <!-- delete button -->
+                <a class="delete" data-toggle="modal"
+                    data-target="#cancel-session-modal"><i class="fa fa-trash fa-lg"></i>
+                </a>
+                <div class="modal fade" id="cancel-session-modal" tabindex="-1" role="dialog"
+                     aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal"><span
+                                        aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                                </button>
+                                <h4 class="modal-title">Delete video</h4>
+                            </div>
+                            <div class="modal-body">
+                                <p>Are you sure you want to delete this video?</p>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default"
+                                            data-dismiss="modal">Go back
+                                    </button>
+                                    <button type="button" class="btn btn-primary delete-btn">Confirm
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
                 <p class="providtime"> 2 hours ago </p>
                 <div class="clear"></div>

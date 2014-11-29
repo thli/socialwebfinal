@@ -212,7 +212,7 @@ def delete_post(request):
             #trying to delete another user's post?
             return Http404
         post.delete()
-        return HttpResonse()
+        return HttpResponse()
 
 def update_password(request):
     if request.method == 'POST':

@@ -15,6 +15,24 @@ $(document).ready(function() {
             post.find(".likes").html(numLikes + " likes");
         });
     });
+    
+    
+    $(".delete-btn").click(function() {
+        var post = $(this).closest(".post");
+        var url = "/vidavid/delete-post"
+        var id = post.attr("post-id");
+        var csrftoken = getCookie('csrftoken');
+        $.ajax({
+            'type': "POST",
+            'url': url,
+            'data': {
+                'id' : id,
+                'csrfmiddlewaretoken' : csrftoken,
+            }
+        }).done(function() {
+            post.remove();
+        });
+    });    
 
 });
 
