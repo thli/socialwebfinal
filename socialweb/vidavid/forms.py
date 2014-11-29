@@ -74,8 +74,44 @@ class RegistrationForm(forms.Form):
 			# Generally return the cleaned data we got from the cleaned_data
 			# dictionary
 			return username
+
+class PasswordForm(forms.Form):            
+    current_password = forms.CharField(max_length = 200, widget = forms.PasswordInput(
+															attrs={'class':'form-control',
+															'placeholder':'Current password',
+															'required':''}))
+                                                            
+    new_password1 = forms.CharField(max_length = 200, widget = forms.PasswordInput(
+															attrs={'class':'form-control',
+															'placeholder':'New password',
+															'required':''}))
+    new_password2 = forms.CharField(max_length = 200, widget = forms.PasswordInput(
+															attrs={'class':'form-control',
+															'placeholder':'Confirm new password',
+															'required':''}))            
+
+    def clean(self):
+        cleaned_data = super(PasswordForm, self).clean()
+
+        # Confirms that the two password fields match
+        password1 = cleaned_data.get('new_password1')
+        password2 = cleaned_data.get('new_password2')
+        if password1 and password2 and password1 != password2:
+                raise forms.ValidationError("Passwords did not match.")
+        return cleaned_data
+          
+class SearchForm(forms.Form):
+    query = forms.CharField(max_length=20, widget=forms.TextInput(
+                                            attrs={'class':'form-control',
+                                            'placeholder':'Search for posts...'}))
 			
 class PostForm(forms.ModelForm):
+    tags = forms.CharField(max_length=20, label="Tags",
+                                            widget=forms.TextInput(
+                                            attrs={'class':'form-control',
+                                            'placeholder':'Tags (separated by commas)',
+                                            }))
+
     class Meta:
         model = Post
         fields = ['url', 'title']
@@ -90,6 +126,32 @@ class PostForm(forms.ModelForm):
             }),
             'title' : forms.TextInput(attrs={
                 'class' : 'form-control',
-                'placeholder' : 'Title'
+                'placeholder' : 'Video Title'
+            }),
+        }
+     
+class EditProfileForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = {'firstname', 'lastname', 'description', 'picture'}
+        widgets = {
+            'firstname': forms.TextInput(attrs={
+                'class': 'form-control',
+                'required': ''
+            }),
+            
+            'lastname': forms.TextInput(attrs={
+                'class': 'form-control',
+                'required': ''
+            }),
+
+            'description': forms.Textarea(attrs={
+                'class' : 'form-control',
+                'placeholder' : 'Describe yourself here.',
+                'rows' : '5',
+            }),
+            
+            'picture': forms.FileInput(attrs={
+                'class': 'btn btn-info',
             }),
         }

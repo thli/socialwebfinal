@@ -9,6 +9,8 @@ from django.template import RequestContext
 from django.shortcuts import render_to_response
 from django.http import HttpResponse, Http404
 
+from mimetypes import guess_type
+
 from vidavid.models import *
 from vidavid.forms import *
 from django import forms
@@ -95,38 +97,69 @@ def index(request):
     posts = Post.objects.all().order_by('-id')[:10]
     context['posts'] = posts	
     context['post_form'] = PostForm()
+    context['search_form'] = SearchForm()
     return render_to_response('index.html', context, context_instance=RequestContext(request))
 
 def profile(request, id):
     context = {}
     context['post_form'] = PostForm()
-    user = get_object_or_404(Profile, user=request.user)
-    posts = Post.objects.filter(user=user)
+    context['search_form'] = SearchForm()
+    profile = get_object_or_404(Profile, id=id)
+    posts = Post.objects.filter(user=profile)
     context['posts'] = posts
+    
+    tags = set()
+    all_tags = Tag.objects.all()
+    for tag in all_tags:
+        for post in posts:
+            if post.tags.filter(tag=tag).exists():
+                tags.add(tag)
+    context['tags'] = tags
+   
+    context['profile'] = profile
     return render_to_response('profile.html', context, context_instance=RequestContext(request))    
     
 def search(request):
     context = {}
+    context['post_form'] = PostForm()
+    context['search_form'] = SearchForm()
     if request.method == 'GET':
-        query = request.GET.get("query")
-        tag = Tag.objects.filter(tag=query) # do some filtering
-        posts = tag.posts
+        form = SearchForm(request.GET)
+        if not form.is_valid():
+            #error nothing could be found
+            return render_to_response('search.html', context, context_instance=RequestContext(request))
+        query = form.cleaned_data['query']
+        posts = set()
+        for tag in Tag.objects.all():
+            for post in Post.objects.all():
+                if post.tags.filter(tag=query).exists():
+                    posts.add(post)
+                    
         context['posts'] = posts
-    return render_to_response('profile.html', context, context_instance=RequestContext(request))      
+    return render_to_response('search.html', context, context_instance=RequestContext(request))      
 
 def edit_profile(request):
     context = {}
+    context['search_form'] = SearchForm()
+    context['password_form'] = PasswordForm()
     profile = get_object_or_404(Profile, user=request.user)
+    context['profile'] = profile
     if request.method == 'GET':
-        context['form'] = EditProfileForm(instance=profile)
+        context['edit_form'] = EditProfileForm(instance=profile)
     if request.method == 'POST':
-        form = EditProfileForm(request.POST)
-        context['form'] = form
-        if not form.is_valid():
-            #some error message
-            return render_to_response('editprofile.html', context, context_instance=RequestContext(request))
-        form.save()
-    return render_to_response('editprofile.html', context, context_instance=RequestContext(request)) 
+        edit_form = EditProfileForm(request.POST, request.FILES)
+        context['edit_form'] = edit_form
+        if not edit_form.is_valid():
+            messages.error(request, 'Form incorrectly completed. Please try again.')
+            return render_to_response('edit.html', context, context_instance=RequestContext(request))
+        profile.firstname = edit_form.cleaned_data['firstname']
+        profile.lastname = edit_form.cleaned_data['lastname']
+        profile.description = edit_form.cleaned_data['description']
+        if 'picture' in request.FILES:
+            profile.picture = edit_form.cleaned_data['picture']
+        profile.save()
+        messages.success(request, 'Saved changes.')
+    return render_to_response('edit.html', context, context_instance=RequestContext(request))
     
 #-------------------------------------------------------------#
 #                           Actions                           #
@@ -148,7 +181,14 @@ def post_video(request):
         user = get_object_or_404(Profile, user=request.user)
         url = form.cleaned_data['url']
         title = form.cleaned_data['title']
-        new_post = Post.objects.create(user=user, url=url, title=title)
+        tags = form.cleaned_data['tags'].split(",")
+        new_post = Post.objects.create(user=user, url=url, title=title)          
+
+        for new_tag in tags:
+            tag, created = Tag.objects.get_or_create(tag=new_tag)
+            tag.save()
+            new_post.tags.add(tag)
+            
         new_post.save()
         return redirect(reverse('index'))
         
@@ -159,7 +199,7 @@ def like_post(request):
         post = get_object_or_404(Post, id=id)
         post.liked.add(user)
         post.save()
-        return HttpResponse()
+        return HttpResponse(post.likes)
         
     return Http404
 
@@ -173,4 +213,31 @@ def delete_post(request):
             return Http404
         post.delete()
         return HttpResonse()
+
+def update_password(request):
+    if request.method == 'POST':
+        form = PasswordForm(request.POST)
+        if not form.is_valid():
+            messages.error(request, 'Passwords do not match.')
+            return redirect(reverse('edit'))
+            
+        user = request.user
+        if user.check_password(form.cleaned_data['current_password']):
+            user.set_password(form.cleaned_data['new_password1'])
+            user.save()
+            user = authenticate(username=user.username,
+                password=form.cleaned_data['new_password1'])
+            login(request, user)
+            messages.success(request, 'Password saved.')
+        return redirect(reverse('edit'))
         
+#-------------------------------------------------------------#
+#                           Utility                           #
+#-------------------------------------------------------------#       
+        
+def get_profile_photo(request, id):
+    profile = get_object_or_404(Profile, id=id)
+    if not profile.picture:
+        raise Http404
+    content_type = guess_type(profile.picture.name)
+    return HttpResponse(profile.picture, content_type=content_type)

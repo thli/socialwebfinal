@@ -1,0 +1,113 @@
+{% extends 'base-login.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-3 editprofile">
+        <div class="edit">
+            <img class="name" src="{% url 'profile-pic' user.id %}" />
+            <div class="editinfo">
+                <h5>{{profile.name}}</h5>
+                <h5>{{user}}</h5>
+                <div class="follow">
+                    <p><a href="follower.html">268</a> </p>
+                    <p>Followers</p>
+                </div>
+
+                <div class="follow">
+                    <p><a href="#">587</a>
+                    </p>
+                    <p>Following</p>
+                    </p>
+                </div>
+                <div class="follow">
+                    <p><a href="#">10</a>
+                    </p>
+                    <p>Posts</p>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-9">
+        <div class="followers">
+            <h5 class="mytitle">Edit</h5>
+            <hr>
+            <div class="clear"></div>
+
+            <div class="editpage" role="tabpanel">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active"><a href="#image" aria-controls="image" role="tab" data-toggle="tab">Self-description</a>
+                    </li>
+                    <li role="presentation"><a href="#privacy" aria-controls="privacy" role="tab" data-toggle="tab">Privacy</a>
+                    </li>
+
+
+                </ul>
+
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="image">
+                    <form role="form" enctype="multipart/form-data" action="{% url 'edit' %}" method="POST">
+                        <div class="describe">
+                            <h5 class="edith5">Change your name</h5>
+                            <p class="editp">First name:
+                                {{edit_form.firstname}}
+                            </p>
+                            <p class="editp">Last name:
+                                {{edit_form.lastname}}
+                            </p>
+
+                            <h5 class="edith5">Change your description </h5>
+                            {{edit_form.description}}
+
+                            <div class="upload">
+                                <h5 class="edith5">Change your profile image </h5>
+                                <img src="{% url 'profile-pic' user.id %}" alt="profile picture" width="125px"
+                                    class="uploadimg">
+                                {{edit_form.picture}}
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-info save">Save</button>
+                        {% csrf_token %}
+                    </form>
+                    </div>
+
+                    <div role="tabpanel" class="tab-pane" id="privacy">
+                        <div class="describe">
+                            <form role="form" action="{% url 'change-password' %}" method="POST">
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">
+                                        <h5 class="edith5">Current Password</h5>
+                                    </label>
+                                    {{password_form.current_password}}
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">
+                                        <h5 class="edith5">New Password</h5>
+                                    </label>
+                                    {{password_form.new_password1}}
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">
+                                        <h5 class="edith5">Confirm Password</h5>
+                                    </label>
+                                    {{password_form.new_password2}}
+                                </div>
+
+                                <button type="submit" class="btn btn-info">Submit</button>
+                                {% csrf_token %}
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+    

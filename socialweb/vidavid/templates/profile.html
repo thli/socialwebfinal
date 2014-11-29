@@ -2,103 +2,67 @@
 {% load embed_video_tags %}
 
 {% block content %}
-<div class="container">
-    <div class="row">
-        <div class="col-md-2">
-            <img class="name" src="images/users/3.jpg" />
-            <div class="edit">
-                <h5>Alex Lang</h5>
-                <p>Followers: <a href="#">268</a>
-                </p>
-                <p>Following: <a href="#">587</a>
-                </p>
-                <p>Posts:<a href="#">10</a>
-                </p>
+<div class="row">
+    <div class="col-md-3 editprofile">
+        <div class="edit">
+            <img class="name" src="{% url 'profile-pic' user.id %}" />
+            <div class="editinfo">
+                <h5>{{profile.name}}</h5>
+                <h5>{{user}}</h5>
+                <div class="follow">
+                    <p><a href="follower.html">268</a></p>
+                    <p>Followers</p>
+                </div>
 
-                <a href="#" class="btn btn-sm btn-info">
-                    </span>Edit</a>
+                <div class="follow">
+                    <p><a href="#">587</a>
+                    </p>
+                    <p>Following</p>
+                    </p>
+                </div>
+                <div class="follow">
+                    <p><a href="#">10</a>
+                    </p>
+                    <p>Posts</p>
+                </div>
+                <div class="clear"></div>
+                {% if profile.user == user %}
+                <a href="{% url 'edit' %}" class="btn btn-sm btn-info">Edit</a>
+                {% endif %}
             </div>
         </div>
-        <div class="col-md-8">
-            <div class="tagbox">
-                <h5 class="mytitle">{{user}}'s tags</h5>
+    </div>
+
+    <div class="col-md-9">
+        <div class="tagbox">
+            <h5 class="mytitle">{{profile.user}}'s tags</h5>
+            <hr>
+            <div class="clear"></div>
+            <ul class="tags">
+                {% for tag in tags %}
+                <li><a class="{% cycle 'size1' 'size2' 'size3' 'size4' 'size5' 'size6' 'size7' 'size8' 'size9' 'size10' 'size11' 'size12' %}" href="#">{{tag}}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="myvideo">
+            {% for post in posts %}
+            <div class="myvideos">
+                <div class="video-container">
+                    {% video post.url 'medium' %}
+                </div>
+                <p class="providtitle">{{post.title}}</p>
+                <a class="delete" href="javascript:void(0);"><i class="fa fa-trash fa-lg"></i></a>
+
+                <p class="providtime"> 2 hours ago </p>
+                <div class="clear"></div>
                 <ul class="tags">
-                    <li><a class="size1" href="#">adobe</a>
-                    </li>
-                    <li><a class="size2" href="#">animation</a>
-                    </li>
-                    <li><a class="size3" href="#">arts</a>
-                    </li>
-                    <li><a class="size4" href="#">bizarre</a>
-                    </li>
-                    <li><a class="size5" href="#">blogs</a>
-                    </li>
-                    <li><a class="size6" href="#">books</a>
-                    </li>
-                    <li><a class="size7" href="#">family</a>
-                    </li>
-                    <li><a class="size8" href="#">aftereffects</a>
-                    </li>
-                    <li><a class="size9" href="#">imagine</a>
-                    </li>
-                    <li><a class="size10" href="#">life</a>
-                    </li>
-                    <li><a class="size11" href="#">thoughts</a>
-                    </li>
-                    <li><a class="size12" href="#">childhood</a>
-                    </li>
+                    {% for tag in post.tags.all %}
+                    <li><a class="{% cycle 'size1' 'size2' 'size3' 'size4' 'size5' 'size6' 'size7' 'size8' 'size9' 'size10' 'size11' 'size12' %}" href="#">{{tag}}</a></li>
+                    {% endfor %}
                 </ul>
             </div>
-
-            <div class="myvideo">
-                <h5 class="mytitle">{{user}}'s videos</h5>
-                {% for post in posts %}
-                <div class="myvideos">
-                    <div class="row">
-                        <div class="col-md-8">
-                            <div class="video-container">
-                                {% video post.url 'small' %}
-                            </div>
-                        </div>
-
-                        <div class="col-md-4">
-                            <h2 class="videotitle">{{post.title}}</h2>
-                            <p class="videotime"> 2 hours ago </p>
-                            <div class="videotext">
-                                <ul class="tag">
-                                    <li><a class="size1" href="#">adobe</a>
-                                    </li>
-                                    <li><a class="size2" href="#">animation</a>
-                                    </li>
-                                    <li><a class="size3" href="#">arts</a>
-                                    </li>
-                                    <li><a class="size4" href="#">bizarre</a>
-                                    </li>
-                                    <li><a class="size5" href="#">blogs</a>
-                                    </li>
-                                    <li><a class="size6" href="#">books</a>
-                                    </li>
-                                    <li><a class="size7" href="#">family</a>
-                                    </li>
-                                    <li><a class="size8" href="#">aftereffects</a>
-                                    </li>
-                                    <li><a class="size9" href="#">imagine</a>
-                                    </li>
-                                    <li><a class="size10" href="#">life</a>
-                                    </li>
-                                    <li><a class="size11" href="#">thoughts</a>
-                                    </li>
-                                    <li><a class="size12" href="#">childhood</a>
-                                    </li>
-                                </ul>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                {% endfor %}
-            </div>
-        </div>
+            {% endfor %}
+         </div>
     </div>
 </div>
 {% endblock %}
