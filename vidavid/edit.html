@@ -12,6 +12,7 @@
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,500,700,400italic' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Oswald:400,700,300' rel='stylesheet' type='text/css'>
     <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link href="css/jasny-bootstrap.min.css" rel="stylesheet" media="screen">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -163,7 +164,7 @@
                       <!-- Tab panes -->
                       <div class="tab-content">
                         <div role="tabpanel" class="tab-pane active" id="image">
-                            <div class="describe">
+                          <div class="describe">
                             <h5 class="edith5">Change your user name</h5>
                             <p class="editp">Current:  Alex Lang</p>
                             <p class="editp">New:  <input type="text" class="form-control" placeholder=""></p>
@@ -173,7 +174,7 @@
                             
                             <div class="upload">
                                 <h5 class="edith5">Change your profile image </h5>
-                                <img class="uploadimg" src="images/users/3.jpg" />
+                                <!--<img class="uploadimg" src="images/users/3.jpg" />
                                 
                                 <form class="navbar-form" role="search">
                                     <div class="input-group">
@@ -181,12 +182,27 @@
                                         <input type="file" class="btn btn-info"></input>
                                      
                                     </div>
-                                </form>
+                                </form>-->
+                                <div class="fileinput fileinput-new" data-provides="fileinput">
+                                  <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 150px;">
+                                  </div>
+                                  <div>
+                                    <span class="btn btn-default btn-file">
+                                      <span class="fileinput-new">Select image</span>
+                                      <span class="fileinput-exists">Change
+                                      </span>
+                                      <input type="hidden" value name>
+                                      <input type="file">
+                                    </span>
+                                    <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
+                                  </div>
+                                </div>
                              </div>
+                             <button type="submit" class="btn btn-info save">Save</button>
                             </div>  
                             
                             
-                            <button type="submit" class="btn btn-info save">Save</button>
+                            
                         </div>
                           
                         <div role="tabpanel" class="tab-pane" id="privacy">
@@ -205,7 +221,7 @@
                                 <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
                               </div>
                               
-                              <button type="submit" class="btn btn-info">Submit</button>
+                              <button type="submit" class="submit btn btn-info">Submit</button>
                             </form>
                             </div>
                         </div>
@@ -235,7 +251,7 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
     <script src="js/main.js"></script>
-    
+    <script src="js/jasny-bootstrap.min.js"></script>
     </body>
     
 </html>

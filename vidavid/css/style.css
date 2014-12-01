@@ -820,7 +820,7 @@ p a:hover {
     background: #fff;
 }
 .describe {
-   padding: 50px 50px;
+   padding: 30px 50px 20px 50px;
 }
 
 .describe > .form-control {
@@ -844,9 +844,7 @@ p a:hover {
     margin: 0px 0 0 10px;
     display: inline-block;
 }
-.save {
-    margin: 10px 40% 20px 7%;
-}
+
 
 .edith5 {
     padding: 20px 0 10px 0;
@@ -871,6 +869,13 @@ p a:hover {
 
 .tab-content {
 	/* text-align: center; */
+}
+
+.form-group {
+    margin-bottom: 0;
+}
+.submit {
+    margin-top: 10px;
 }
 
 /***.input-xlarge, .btn.btn-info {
@@ -901,4 +906,5 @@ label {
     display: inline-block;
     width: 30%;
     background: #eee;
+
 }
