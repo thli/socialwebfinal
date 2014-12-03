@@ -56,13 +56,13 @@ a {
 	margin-bottom: 0;
 }
 
-.row.navigation > ul > li > .col-lg-6 {
-	margin-top: 8px;
+.row.navigation > ul > li > .col-xs-4 {
+	margin-top: 10px;
 	margin-left: 25px;
 }
 
-.col-lg-2 > .btn-sm {
-	margin-top: 9.5px;
+.col-xs-2 > .btn-sm {
+	margin-top: 12px;
 }
 
 .modal-body > .input-group {
@@ -906,5 +906,23 @@ label {
     display: inline-block;
     width: 30%;
     background: #eee;
+
+}
+
+/***change the profile***/
+@media (max-width: 992px) {
+    .col-md-9 {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .edit {
+       padding-top: 20px;
+    }
+
+    .follow {
+        width: 15%;
+        padding-left: 7%;
+    }
 
 }
